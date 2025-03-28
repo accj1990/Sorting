@@ -7,16 +7,16 @@ namespace Sorting.print
     {
         public static void ImprimirArrayMesmaLinha(int[] array, Sortings algoritmo)
         {
-            Console.WriteLine("ALGORITMO - " + UtilEnum.GetDescription(algoritmo) + "\n");
-
-            Console.WriteLine("INICIO - Imprimindo estrutura em alocação estática sem pular linha.\n");
+            // Console.WriteLine("ALGORITMO - " + UtilEnum.GetDescription(algoritmo) + "\n");
+            // Console.WriteLine("INICIO - Imprimindo estrutura em alocação estática sem pular linha.\n");
+            // Console.WriteLine("ALGORITMO - " + UtilEnum.GetDescription(algoritmo) + "\n");
 
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write(array[i] + " ");
             }
             Console.Write("\n");
-            Console.WriteLine("\nFIM - Imprimindo estrutura em alocação estática sem pular linha.\n");
+            // Console.WriteLine("\nFIM - Imprimindo estrutura em alocação estática sem pular linha.\n");
         }
 
         public static void ImprimirArrayQuebraLinha(int[] array)
