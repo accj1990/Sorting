@@ -1,6 +1,6 @@
 ﻿namespace Sorting.sorting.simple
 {
-    class SelectionSort
+    static class SelectionSort
     {
         public static int[] Sorting(int[] vet)
         {

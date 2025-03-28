@@ -1,6 +1,6 @@
 ﻿namespace Sorting.sorting.simple
 {
-    class BubbleSort
+    static class BubbleSort
     {
         public static int[] Sorting(int[] vet)
         {
