@@ -7,9 +7,9 @@ namespace Sorting.basic_static_allocation_structures
     {
         public void LerVetor10(Sortings algoritmo)
         {
-            int[] vet = ManagerFileReader.Arquivo10TXT();
+            int[] vet = ManagerFileReader.File10();
 
-            PrintSolutionStatic.ImprimirArrayMesmaLinha(vet, algoritmo);
+            PrintSolutionStatic.ArraySameLine(vet, algoritmo);
 
         }
     }

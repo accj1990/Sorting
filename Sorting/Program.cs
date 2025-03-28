@@ -36,12 +36,12 @@ public class Program
         Console.WriteLine(" ");
         switch (op)
         {
-            case 'A': Console.WriteLine("Opção A: Arquivo '1000000-aleatorios' escolhido."); vet = new int[1000000]; vet = ManagerFileReader.Arquivo1000000TXT(); break;
-            case 'B': Console.WriteLine("Opção B: Arquivo '100000-aleatorios' escolhido."); vet = new int[100000]; vet = ManagerFileReader.Arquivo100000TXT(); break;
-            case 'C': Console.WriteLine("Opção C: Arquivo '10000-aleatorios' escolhido."); vet = new int[10000]; vet = ManagerFileReader.Arquivo10000TXT(); break;
-            case 'D': Console.WriteLine("Opção D: Arquivo '1000-aleatorios' escolhido."); vet = new int[1000]; vet = ManagerFileReader.Arquivo1000TXT(); break;
-            case 'E': Console.WriteLine("Opção E: Arquivo '100-aleatorios' escolhido."); vet = new int[100]; vet = ManagerFileReader.Arquivo100TXT(); break;
-            case 'F': Console.WriteLine("Opção F: Arquivo '10-aleatorios' escolhido."); vet = new int[10]; vet = ManagerFileReader.Arquivo10TXT(); break;
+            case 'A': Console.WriteLine("Opção A: Arquivo '10-aleatorios' escolhido."); vet = new int[10]; vet = ManagerFileReader.File10(); break;
+            case 'B': Console.WriteLine("Opção B: Arquivo '100-aleatorios' escolhido."); vet = new int[100]; vet = ManagerFileReader.File100(); break;
+            case 'C': Console.WriteLine("Opção C: Arquivo '1000-aleatorios' escolhido."); vet = new int[1000]; vet = ManagerFileReader.File1000(); break;
+            case 'D': Console.WriteLine("Opção D: Arquivo '10000-aleatorios' escolhido."); vet = new int[10000]; vet = ManagerFileReader.File10000(); break;
+            case 'E': Console.WriteLine("Opção E: Arquivo '100000-aleatorios' escolhido."); vet = new int[100000]; vet = ManagerFileReader.File100000(); break;
+            case 'F': Console.WriteLine("Opção F: Arquivo '1000000-aleatorios' escolhido."); vet = new int[1000000]; vet = ManagerFileReader.File1000000(); break;
         }
         Console.WriteLine(" "); return vet;
     }
@@ -84,11 +84,11 @@ public class Program
         Sorting.enums.Sortings algorithm = ChooseAlgorithm(vet);
 
         Console.WriteLine("Vetor antes da ordenação:");
-        PrintSolutionStatic.ImprimirArrayMesmaLinha(vet, Sorting.enums.Sortings.BUBBLESORT);
-        ManagerFileSorting.Ordenar(algorithm, vet);
+        PrintSolutionStatic.ArraySameLine(vet, Sorting.enums.Sortings.BUBBLESORT);
+        ManagerFileSorting.Order(algorithm, vet);
 
         Console.WriteLine("\nVetor depois da ordenação:");
-        PrintSolutionStatic.ImprimirArrayMesmaLinha(vet, Sorting.enums.Sortings.BUBBLESORT);
+        PrintSolutionStatic.ArraySameLine(vet, Sorting.enums.Sortings.BUBBLESORT);
         Console.WriteLine(" ");
     }
 }
