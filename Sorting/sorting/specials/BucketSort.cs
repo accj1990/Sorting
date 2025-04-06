@@ -6,6 +6,10 @@ namespace Sorting.sorting.specials
     {
         public int[] Sorting(int[] vet)
         {
+            assignments = 0;
+            comparisons = 0;
+            swaps = 0;
+
             for (int i = 0; i < vet.Length; i++)
             {
                 for (int j = 0; j < vet.Length; j++)

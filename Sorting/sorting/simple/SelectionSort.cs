@@ -6,6 +6,7 @@ namespace Sorting.sorting.simple
     {
         public int[] Sorting(int[] vet)
         {
+            assignments = 0;
             comparisons = 0;
             swaps = 0;
 

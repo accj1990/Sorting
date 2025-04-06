@@ -81,12 +81,12 @@ public class Program
         int[] vet = ChooseFile();
         Sorting.enums.Sortings algorithm = ChooseAlgorithm(vet);
 
-        /*  Console.WriteLine("Vetor antes da ordenação:");
-          PrintSolutionStatic.ArraySameLine(algorithm, vet);*/
+        /* Console.WriteLine("Vetor antes da ordenação:");
+          PrintSolutionStatic.ArraySameLine(algorithm, vet); */
         ManagerFileSorting.Order(algorithm, vet);
 
         /* Console.WriteLine("\nVetor depois da ordenação:");
-        PrintSolutionStatic.ArraySameLine(algorithm, vet);*/
+        PrintSolutionStatic.ArraySameLine(algorithm, vet); */
         Console.WriteLine(" ");
     }
 }

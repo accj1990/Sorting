@@ -7,6 +7,7 @@ namespace Sorting.sorting.specials
     {
         public int[] Sorting(int[] vet)
         {
+            assignments = 0;
             comparisons = 0;
             swaps = 0;
             if (vet.Length <= 1) return vet;
