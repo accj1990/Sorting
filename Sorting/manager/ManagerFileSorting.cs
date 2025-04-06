@@ -7,50 +7,60 @@ namespace Sorting.manager
 {
     class ManagerFileSorting
     {
-        public static void Order(Sortings algoritmo, int[] vet)
+        public static void Order(Sortings algorithm, int[] vet)
         {
-            int[] ordenado;
+            int[] ordered;
 
-            switch (algoritmo)
+            switch (algorithm)
             {
                 case Sortings.BUBBLESORT:
-                    ordenado = BubbleSort.Sorting(vet);
+                    BubbleSort b = new BubbleSort();
+                    ordered = b.Sorting(vet);
                     break;
 
                 case Sortings.SELECTIONSORT:
-                    ordenado = SelectionSort.Sorting(vet);
+                    SelectionSort s = new SelectionSort();
+                    ordered = s.Sorting(vet);
                     break;
 
                 case Sortings.INSERTIONSORT:
-                    ordenado = InsertionSort.Sorting(vet);
+                    InsertionSort i = new InsertionSort();
+                    ordered = i.Sorting(vet);
                     break;
 
                 case Sortings.BUCKETSORT:
-                    // ordenado = BucketSort.Sorting(vet);
+                    BucketSort k = new BucketSort();
+                    ordered = k.Sorting(vet);
                     break;
 
                 case Sortings.COUNTINGSORT:
-                    ordenado = CountingSort.Sorting(vet);
+                    CountingSort c = new CountingSort();
+                    ordered = c.Sorting(vet);
                     break;
 
                 case Sortings.RADIXSORT:
-                    ordenado = RadixSort.Sorting(vet);
+                    RadixSort r = new RadixSort();
+                    ordered = r.Sorting(vet);
                     break;
 
                 case Sortings.SHELLSORT:
-                    ordenado = ShellSort.Sorting(vet);
+                    ShellSort l = new ShellSort();
+                    ordered = l.Sorting(vet);
                     break;
 
                 case Sortings.QUICKSORT:
-                    ordenado = QuickSort.Sorting(vet);
+                    QuickSort q = new QuickSort();
+                    ordered = q.Sorting(vet);
                     break;
 
                 case Sortings.MERGESORT:
-                    ordenado = MergeSort.Sorting(vet);
+                    MergeSort m = new MergeSort();
+                    ordered = m.Sorting(vet);
                     break;
 
                 case Sortings.HEAPSORT:
-                    ordenado = HeapSort.Sorting(vet);
+                    HeapSort h = new HeapSort();
+                    ordered = h.Sorting(vet);
                     break;
             }
         }

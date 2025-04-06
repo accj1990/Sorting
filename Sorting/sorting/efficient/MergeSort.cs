@@ -1,54 +1,69 @@
 ﻿namespace Sorting.sorting.efficient
 {
-    class MergeSort
+    class MergeSort : AbstractOrder
     {
-        public static int[] Sorting(int[] vet)
+        public int[] Sorting(int[] vet)
         {
+            comparisons = 0;
+            swaps = 0;
+          
             if (vet == null || vet.Length <= 1)
                 return vet;
 
             Algorithm(vet, 0, vet.Length - 1);
+
+            PrintNumbers(); 
             return vet;
         }
 
-        private static void Algorithm(int[] vet, int left, int right)
+        private void Algorithm(int[] vet, int left, int right)
         {
             if (left < right)
             {
                 int middle = (left + right) / 2;
 
-                Algorithm(vet, left, middle); 
-                Algorithm(vet, middle + 1, right); 
+                Algorithm(vet, left, middle);
+                Algorithm(vet, middle + 1, right);
 
-                Interleave(vet, left, middle, right); 
+                Interleave(vet, left, middle, right);
             }
         }
 
-        private static void Interleave(int[] vet, int left, int middle, int right)
+        private void Interleave(int[] vet, int left, int middle, int right)
         {
             int nLeft = (middle + 1) - left;
             int nRight = right - middle;
 
-            int[] vetLeft = new int[nLeft + 1]; 
-            int[] vetRight = new int[nRight + 1]; 
+            int[] vetLeft = new int[nLeft + 1];
+            int[] vetRight = new int[nRight + 1];
 
             vetLeft[nLeft] = vetRight[nRight] = 0x7FFFFFFF;
 
-            int iEsq, iDir, i;
+            int iLeft, iRight, i;
 
-            for (iEsq = 0; iEsq < nLeft; iEsq++)
+            for (iLeft = 0; iLeft < nLeft; iLeft++)
             {
-                vetLeft[iEsq] = vet[left + iEsq];
+                vetLeft[iLeft] = vet[left + iLeft];
             }
 
-            for (iDir = 0; iDir < nRight; iDir++)
+            for (iRight = 0; iRight < nRight; iRight++)
             {
-                vetRight[iDir] = vet[(middle + 1) + iDir];
+                vetRight[iRight] = vet[(middle + 1) + iRight];
             }
 
-            for (iEsq = iDir = 0, i = left; i <= right; i++)
+            for (iLeft = iRight = 0, i = left; i <= right; i++)
             {
-                vet[i] = (vetLeft[iEsq] <= vetRight[iDir]) ? vetLeft[iEsq++] : vetRight[iDir++];
+                comparisons++;
+                if (vetLeft[iLeft] <= vetRight[iRight])
+                {
+                    vet[i] = vetLeft[iLeft++];
+                }
+                else
+                {
+                    vet[i] = vetRight[iRight++];
+                    swaps++;
+                }
+
             }
         }
     }

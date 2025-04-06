@@ -11,26 +11,24 @@ public class Program
         int op = 0;
         do
         {
-            Console.WriteLine("Insira a opção desejada");
-            Console.WriteLine("0 - Encerrar programa");
-            Console.WriteLine("1 - Continuar programa");
+            Console.WriteLine("Insira a opção desejada, o número '1' se deseja continuar o programa.\nCaso contrário, digite qualquer outro número inteiro.");
             op = int.Parse(Console.ReadLine());
             Console.WriteLine(" ");
             if (op == 1) { Menu(); }
 
-        } while (op != 0);
+        } while (op == 1);
     }
 
     private static int[] ChooseFile()
     {
         Console.WriteLine("Escolha o arquivo que será lido");
-        Console.WriteLine("A - 1000000-aleatorios");
-        Console.WriteLine("B - 100000-aleatorios");
-        Console.WriteLine("C - 10000-aleatorios");
-        Console.WriteLine("D - 1000-aleatorios");
-        Console.WriteLine("E - 100-aleatorios");
-        Console.WriteLine("F - 10-aleatorios");
-        char op = char.Parse(Console.ReadLine());
+        Console.WriteLine("A - 10-aleatorios");
+        Console.WriteLine("B - 100-aleatorios");
+        Console.WriteLine("C - 1000-aleatorios");
+        Console.WriteLine("D - 10000-aleatorios");
+        Console.WriteLine("E - 100000-aleatorios");
+        Console.WriteLine("F - 1000000-aleatorios");
+        char op = char.ToUpper(char.Parse(Console.ReadLine()));
         int[] vet = new int[1];
 
         Console.WriteLine(" ");
@@ -58,7 +56,7 @@ public class Program
         Console.WriteLine("H - Quick Sort");
         Console.WriteLine("I - Merge Sort");
         Console.WriteLine("J - Heap Sort");
-        char op = char.Parse(Console.ReadLine());
+        char op = char.ToUpper(char.Parse(Console.ReadLine()));
         Sorting.enums.Sortings algorithm = Sorting.enums.Sortings.BUBBLESORT;
 
         Console.WriteLine(" ");
@@ -83,12 +81,12 @@ public class Program
         int[] vet = ChooseFile();
         Sorting.enums.Sortings algorithm = ChooseAlgorithm(vet);
 
-        Console.WriteLine("Vetor antes da ordenação:");
-        PrintSolutionStatic.ArraySameLine(vet, Sorting.enums.Sortings.BUBBLESORT);
+        /*  Console.WriteLine("Vetor antes da ordenação:");
+          PrintSolutionStatic.ArraySameLine(algorithm, vet);*/
         ManagerFileSorting.Order(algorithm, vet);
 
-        Console.WriteLine("\nVetor depois da ordenação:");
-        PrintSolutionStatic.ArraySameLine(vet, Sorting.enums.Sortings.BUBBLESORT);
+        /* Console.WriteLine("\nVetor depois da ordenação:");
+        PrintSolutionStatic.ArraySameLine(algorithm, vet);*/
         Console.WriteLine(" ");
     }
 }
