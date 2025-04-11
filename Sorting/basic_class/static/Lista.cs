@@ -19,11 +19,7 @@
                 cont++;
                 return true;
             }
-            else
-            {
-                Console.WriteLine("Lista está cheia, não é possível inserir " + item);
-                return false;
-            }
+            else      {  Console.WriteLine("Lista está cheia, não é possível inserir " + item);     return false;      }
         }
 
         public bool InserirInicio(int item)
