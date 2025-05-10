@@ -1,24 +1,29 @@
 ﻿namespace Sorting.sorting.simple
 {
-    class BubbleSort
+    class BubbleSort : AbstractOrder
     {
-        public static int[] Sorting(int[] vet)
+        public int[] Sorting(int[] vet)
         {
-            int n = vet.Length;
+            assignments = 0;
+            comparisons = 0;
+            swaps = 0;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < vet.Length; i++)
             {
-                for (int j = n - 1; j > i; j--)
+                for (int j = vet.Length - 1; j > i; j--)
                 {
+                    comparisons++;
                     if (vet[j] < vet[j - 1])
                     {
                         int tmp = vet[j];
                         vet[j] = vet[j - 1];
                         vet[j - 1] = tmp;
+                        swaps++;
                     }
                 }
             }
 
+            PrintNumbers();
             return vet;
         }
     }

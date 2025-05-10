@@ -1,18 +1,24 @@
-﻿namespace Sorting.sorting.simple
+﻿using System;
+
+namespace Sorting.sorting.simple
 {
-    class SelectionSort
+    class SelectionSort : AbstractOrder
     {
-        public static int[] Sorting(int[] vet)
+        public int[] Sorting(int[] vet)
         {
-            int n = vet.Length;
+            assignments = 0;
+            comparisons = 0;
+            swaps = 0;
+
             int min;
-            for (int i = 0; i < n - 1; i++)
+            for (int i = 0; i < vet.Length - 1; i++)
             {
                 min = i;
-                for (int j = i + 1; j < n; j++)
+                for (int j = i + 1; j < vet.Length; j++)
                 {
                     if (vet[j] < vet[min])
                     {
+                        comparisons++;
                         min = j;
                     }
                 }
@@ -20,8 +26,10 @@
                 int tmp = vet[i];
                 vet[i] = vet[min];
                 vet[min] = tmp;
+                swaps++;
             }
 
+            PrintNumbers();
             return vet;
         }
     }

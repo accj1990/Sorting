@@ -18,11 +18,7 @@
                 cont++;
                 return true;
             }
-            else
-            {
-                Console.WriteLine("\nFila está cheia!!! Não é possível inserir o " + item);
-                return false;
-            }
+            else { Console.WriteLine("\nFila está cheia!!! Não é possível inserir o " + item); return false; }
         }
 
         public int Remover()
@@ -41,14 +37,9 @@
         public void Mostrar()
         {
             Console.WriteLine(" Fila ");
-
-            for (int i = 0; i < cont; i++)
-            {
-                Console.Write(fila[i] + " ");
-            }
+            for (int i = 0; i < cont; i++) { Console.Write(fila[i] + " "); }
 
             Console.WriteLine(" ");
-
         }
     }
 }
