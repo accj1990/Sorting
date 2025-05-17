@@ -66,9 +66,33 @@ class ManagerDataStructure
                 break;
 
             case DataStructure.DYNAMIC_PILE:
+                DynamicPile dp = new DynamicPile();
+                dynamicPile = dp;
+
+                for (int i = 0; i < vet.Length; i++) { dp.Insert(vet[i]); }
+                dp.Print();
+                Console.WriteLine(" ");
+
+                do
+                {
+                    op = ManipulateStructure(DataStructure.DYNAMIC_PILE);
+                    Console.WriteLine(" ");
+                } while (op != 0);
                 break;
 
             case DataStructure.DYNAMIC_QUEUE:
+                DynamicQueue dq = new DynamicQueue();
+                dynamicQueue = dq;
+
+                for (int i = 0; i < vet.Length; i++) { dq.Insert(vet[i]); }
+                dq.Print();
+                Console.WriteLine(" ");
+
+                do
+                {
+                    op = ManipulateStructure(DataStructure.DYNAMIC_QUEUE);
+                    Console.WriteLine(" ");
+                } while (op != 0);
                 break;
 
             case DataStructure.DYNAMIC_LIST:
