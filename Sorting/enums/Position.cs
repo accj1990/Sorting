@@ -1,9 +1,16 @@
-﻿namespace Sorting.enums
+﻿using System.ComponentModel;
+
+namespace Sorting.enums
 {
     public enum Position
     {
-        Start = 0,
-        Custom = 1,
-        End = 2
+        [Description("START")]
+        START = 1,
+
+        [Description("CUSTOM")]
+        CUSTOM = 2,
+
+        [Description("END")]
+        END = 3
     }
 }

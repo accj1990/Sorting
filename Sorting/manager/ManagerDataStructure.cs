@@ -41,7 +41,7 @@ class ManagerDataStructure
             case DataStructure.LIST:
                 List l = new List(vet.Length + size);
 
-                for (int i = 0; i < vet.Length; i++) { l.Insert(vet[i], Position.End); }
+                for (int i = 0; i < vet.Length; i++) { l.Insert(vet[i], Position.END); }
                 l.Print();
                 Console.WriteLine(" ");
 
@@ -126,7 +126,7 @@ class ManagerDataStructure
         Console.WriteLine("B - Remover elemento da lista");
         char op = char.ToUpper(char.Parse(Console.ReadLine()));
 
-        Position a = Position.End;
+        Position a = Position.END;
         int p, v;
 
         switch (op)
@@ -134,7 +134,7 @@ class ManagerDataStructure
             case 'A':
                 Console.WriteLine("Opção A: 'Inserir novo elemento na lista' escolhida.\n");
                 a = ChooseListPosition();
-                if (a == Position.Custom) { p = CustomPosition(l.cont - 1); } else { p = 0; }
+                if (a == Position.CUSTOM) { p = CustomPosition(l.cont - 1); } else { p = 0; }
                 v = InputElement();
 
                 l.Insert(v, a, p);
@@ -144,10 +144,9 @@ class ManagerDataStructure
             case 'B':
                 Console.WriteLine("Opção B: 'Remover elemento da lista' escolhida.\n");
                 a = ChooseListPosition();
-                if (a == Position.Custom) { p = CustomPosition(l.cont - 1); } else { p = 0; }
-                v = InputElement();
+                if (a == Position.CUSTOM) { p = CustomPosition(l.cont - 1); } else { p = 0; }
 
-                l.Remove(v, a, p);
+                l.Remove(a, p);
                 l.Print();
                 break;
         }
@@ -169,12 +168,12 @@ class ManagerDataStructure
 
         switch (op)
         {
-            case 'A': Console.WriteLine("Opção A: 'Início' escolhida.\n"); return Position.Start;
-            case 'B': Console.WriteLine("Opção B: 'Customizada' escolhida.\n"); return Position.Custom;
-            case 'C': Console.WriteLine("Opção C: 'Final' escolhida.\n"); return Position.End;
+            case 'A': Console.WriteLine("Opção A: 'Início' escolhida.\n"); return Position.START;
+            case 'B': Console.WriteLine("Opção B: 'Customizada' escolhida.\n"); return Position.CUSTOM;
+            case 'C': Console.WriteLine("Opção C: 'Final' escolhida.\n"); return Position.END;
         }
 
-        return Position.End;
+        return Position.END;
     }
 
     private static int CustomPosition(int max)
@@ -188,7 +187,7 @@ class ManagerDataStructure
 
     private static int InputElement()
     {
-        Console.WriteLine("Insira o valor do elementos que deseja inserir.");
+        Console.WriteLine("Insira o valor do novo elemento");
         int value = int.Parse(Console.ReadLine());
 
         Console.WriteLine(" ");
