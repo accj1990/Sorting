@@ -12,5 +12,14 @@ namespace Structure.enums
 
         [Description("LIST")]
         LIST = 3,
+
+        [Description("PILE")]
+        DYNAMIC_PILE = 4,
+
+        [Description("QUEUE")]
+        DYNAMIC_QUEUE = 5,
+
+        [Description("LIST")]
+        DYNAMIC_LIST = 6,
     }
 }

@@ -78,7 +78,7 @@ public static class Menu
     #endregion
 
     #region DataStructrue
-    private static Structure.enums.DataStructure ChooseStructure(int[] vet)
+    private static Structure.enums.DataStructure ChooseStructure(bool isDynamic = false)
     {
         Console.WriteLine("Escolha a estrutura de dados que será executada");
         Console.WriteLine("A - Pilha");
@@ -90,16 +90,48 @@ public static class Menu
         Console.WriteLine(" ");
         switch (op)
         {
-            case 'A': Console.WriteLine("Opção A: Estrutura de dados 'Pilha' escolhida."); structure = global::Structure.enums.DataStructure.PILE; break;
-            case 'B': Console.WriteLine("Opção B: Estrutura de dados 'Fila' escolhida."); structure = global::Structure.enums.DataStructure.QUEUE; break;
-            case 'C': Console.WriteLine("Opção C: Estrutura de dados 'Lista' escolhida."); structure = global::Structure.enums.DataStructure.LIST; break;
+            case 'A':
+                Console.WriteLine("Opção A: Estrutura de dados 'Pilha' escolhida.");
+                if (isDynamic == false) { structure = global::Structure.enums.DataStructure.PILE; }
+                else { structure = global::Structure.enums.DataStructure.DYNAMIC_PILE; }
+                break;
+            case 'B':
+                Console.WriteLine("Opção B: Estrutura de dados 'Fila' escolhida.");
+                if (isDynamic == false) { structure = global::Structure.enums.DataStructure.QUEUE; }
+                else { structure = global::Structure.enums.DataStructure.DYNAMIC_QUEUE; }
+                break;
+            case 'C':
+                Console.WriteLine("Opção C: Estrutura de dados 'Lista' escolhida.");
+                if (isDynamic == false) { structure = global::Structure.enums.DataStructure.LIST; }
+                else { structure = global::Structure.enums.DataStructure.DYNAMIC_LIST; }
+                break;
         }
+
         Console.WriteLine(" "); return structure;
     }
-    private static void PilhaFilaSla() // melhorar nome :3
+
+    private static bool StaticOrDynamic()
     {
+        char op = 'C';
+        do
+        {
+            Console.WriteLine("Selecione o tipo de estrutura de dados desejado");
+            Console.WriteLine("A - Estática");
+            Console.WriteLine("B - Dinâmica");
+            op = char.ToUpper(char.Parse(Console.ReadLine()));
+
+            Console.WriteLine(" ");
+        } while (op != 'A' && op != 'B');
+
+        if (op == 'B') { Console.WriteLine("Opção B: 'Dinâmica' escolhida.\n"); return true; }
+        Console.WriteLine("Opção A: 'Estática' escolhida.\n"); return false;
+    }
+
+    private static void Manipulate() // melhorar nome :3
+    {
+        Structure.enums.DataStructure structure = ChooseStructure(StaticOrDynamic());
         int[] vet = ChooseFile();
-        Structure.enums.DataStructure structure = ChooseStructure(vet);
+        ManagerDataStructure.Manipulate(structure, vet);
     }
     #endregion
 
@@ -107,64 +139,15 @@ public static class Menu
     {
         Console.WriteLine("Escolha o algoritmo que será executado");
         Console.WriteLine("A - Ordenação interna de dados");
-        Console.WriteLine("B - Pilha e fila");
+        Console.WriteLine("B - Pilha, fila ou lista");
         char op = char.ToUpper(char.Parse(Console.ReadLine()));
         Console.WriteLine(" ");
 
         switch (op)
         {
             case 'A': Console.WriteLine("Opção A: 'Ordenação interna de dados' escolhida.\n"); Sorting(); break;
-            case 'B': Console.WriteLine("Opção B: 'Pilha e fila' escolhida.\n"); PilhaFilaSla(); break;
+            case 'B': Console.WriteLine("Opção B: 'Pilha, fila ou lista' escolhida.\n"); Manipulate(); break;
         }
         Console.WriteLine(" ");
-    }
-
-    private static void AAA()
-    {
-        // Fila, Pilha e Lista em alocação estática
-        Fila f = new Fila(5);
-
-        f.Inserir(1);
-        f.Inserir(2);
-        f.Inserir(3);
-        f.Inserir(4);
-        f.Inserir(5);
-
-        f.Mostrar();
-
-        f.Inserir(6); // não consigo inserir pois a fila está cheia
-
-        f.Remover();
-
-        f.Mostrar();
-
-        f.Inserir(6);
-
-        f.Mostrar();
-
-        f.Remover();
-
-        f.Remover();
-
-        f.Remover();
-
-        f.Mostrar();
-
-        // Pilha
-        Pilha p = new Pilha(5);
-
-        p.Inserir(1);
-        p.Inserir(2);
-        p.Inserir(3);
-        p.Inserir(4);
-        p.Inserir(5);
-
-        p.Mostrar();
-        p.Inserir(6);
-
-        p.Remover();
-        p.Remover();
-
-        p.Mostrar();
     }
 }
