@@ -15,10 +15,11 @@
                     comparisons++;
                     if (vet[j] < vet[j - 1])
                     {
-                        int tmp = vet[j];
+                        int temp = vet[j];
                         vet[j] = vet[j - 1];
-                        vet[j - 1] = tmp;
+                        vet[j - 1] = temp;
                         swaps++;
+                        assignments += 3;
                     }
                 }
             }

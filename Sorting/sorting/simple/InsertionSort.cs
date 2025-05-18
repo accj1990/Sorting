@@ -12,16 +12,19 @@
             for (int i = 1; i < vet.Length; i++)
             {
                 x = vet[i];
+                assignments++;
                 j = i - 1;
+
+                comparisons++;
                 while (j >= 0 && vet[j] > x)
                 {
-                    comparisons++;
                     vet[j + 1] = vet[j];
-                    swaps++;
+                    assignments++;
                     j--;
                 }
+
                 vet[j + 1] = x;
-                swaps++;
+                assignments++;
             }
 
             PrintNumbers();

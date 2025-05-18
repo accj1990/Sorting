@@ -7,30 +7,33 @@
             assignments = 0;
             comparisons = 0;
             swaps = 0;
+            
+            int h = 1;
 
-            int j, h, x, nn;
-            for (h = 1; h <= vet.Length; h = (3 * h + 1)) ;
-            while (h > 1)
+            // definindo incremento inicial
+            while (h < vet.Length / 3) { h = 3 * h + 1; }
+
+            while (h >= 1)
             {
-                h /= 3;
-                for (int k = 0; k < h; k++)
+                for (int i = h; i < vet.Length; i++)
                 {
-                    nn = ((vet.Length / h) + ((vet.Length % h > k) ? 1 : 0));
-                    for (int i = 1; i < nn; i++)
+                    int x = vet[i];
+                    assignments++; 
+                    int j = i;
+
+                    while (j >= h && vet[j - h] > x)
                     {
-                        x = vet[(i * h) + k];
-                        j = i - 1;
-                        while (j >= 0 && vet[j * h + k] > x)
-                        {
-                            comparisons++;
-                            vet[((j + 1) * h) + k] = vet[(j * h) + k];
-                            swaps++;
-                            j--;
-                        }
-                        vet[((j + 1) * h) + k] = x;
-                        swaps++;
+                        comparisons++; 
+                        vet[j] = vet[j - h];
+                        assignments++; 
+                        j -= h;
                     }
+
+                    vet[j] = x;
+                    assignments++; 
                 }
+
+                h /= 3; // reducao do gap
             }
 
             PrintNumbers();

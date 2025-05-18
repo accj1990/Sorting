@@ -10,59 +10,39 @@ namespace Sorting.sorting.efficient
             comparisons = 0;
             swaps = 0;
 
+            // construcao do heap maximo
+            for (int i = vet.Length / 2 - 1; i >= 0; i--) { Rebuild(vet, vet.Length, i); }
 
-            for (int i = 2; i <= vet.Length; i++) { Build(vet, i); }
-
-            int size = vet.Length;
-            while (size > 1)
+            for (int size = vet.Length - 1; size > 0; size--) // ordenacao
             {
-                Swap(vet, 0, size - 1);
+                Swap(vet, 0, size);
                 swaps++;
-                size--;
-                Rebuild(vet, size);
+                Rebuild(vet, size, 0);
             }
 
             PrintNumbers();
             return vet;
         }
 
-        private void Build(int[] vet, int size)
+        private void Rebuild(int[] vet, int size, int i)
         {
-            for (int i = size - 1; i > 0 && vet[i] > vet[(i - 1) / 2]; i = (i - 1) / 2)
-            {
-                comparisons++;
-                Swap(vet, i, (i - 1) / 2);
-                swaps++;
-            }
-        }
-
-        private void Rebuild(int[] vet, int size)
-        {
-            int i = 0;
-            while (HasChild(i, size))
-            {
-                int child = GetLargestIndex(vet, i, size);
-                comparisons++;
-                if (vet[i] < vet[child])
-                {
-                    Swap(vet, i, child);
-                    swaps++;
-                    i = child;
-                }
-                else { break; }
-            }
-        }
-
-        private bool HasChild(int i, int size) { return (2 * i + 1) < size; }
-
-        private int GetLargestIndex(int[] vet, int i, int size)
-        {
+            int largest = i;
             int left = 2 * i + 1;
             int right = 2 * i + 2;
+            assignments += 3;
 
-            comparisons++;
-            if (right < size && vet[right] > vet[left]) { return right; }
-            return left;
+            // verificando filho esquerdo e direito
+            if (left < size && vet[left] > vet[largest]) { largest = left; }
+            if (right < size && vet[right] > vet[largest]) { largest = right; }
+            comparisons=+2;
+
+            // trocando e continuando reorganizando se necessário
+            if (largest != i)
+            {
+                Swap(vet, i, largest);
+                swaps++;
+                Rebuild(vet, size, largest);
+            }
         }
 
         private void Swap(int[] vet, int i, int j)

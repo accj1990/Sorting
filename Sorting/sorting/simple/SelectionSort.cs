@@ -14,19 +14,18 @@ namespace Sorting.sorting.simple
             for (int i = 0; i < vet.Length - 1; i++)
             {
                 min = i;
+                assignments++;
                 for (int j = i + 1; j < vet.Length; j++)
                 {
-                    if (vet[j] < vet[min])
-                    {
-                        comparisons++;
-                        min = j;
-                    }
+                    comparisons++;
+                    if (vet[j] < vet[min]) { min = j; assignments++; }
                 }
 
-                int tmp = vet[i];
+                int temp = vet[i];
                 vet[i] = vet[min];
-                vet[min] = tmp;
+                vet[min] = temp;
                 swaps++;
+                assignments += 3;
             }
 
             PrintNumbers();

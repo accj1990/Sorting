@@ -7,13 +7,11 @@
             assignments = 0;
             comparisons = 0;
             swaps = 0;
-          
-            if (vet == null || vet.Length <= 1)
-                return vet;
 
+            if (vet == null || vet.Length <= 1) { return vet; }
             Algorithm(vet, 0, vet.Length - 1);
 
-            PrintNumbers(); 
+            PrintNumbers();
             return vet;
         }
 
@@ -21,51 +19,41 @@
         {
             if (left < right)
             {
-                int middle = (left + right) / 2;
+                int middle = left + (right - left) / 2;
 
                 Algorithm(vet, left, middle);
                 Algorithm(vet, middle + 1, right);
 
-                Interleave(vet, left, middle, right);
+                Merge(vet, left, middle, right);
             }
         }
 
-        private void Interleave(int[] vet, int left, int middle, int right)
+        private void Merge(int[] vet, int left, int middle, int right)
         {
-            int nLeft = (middle + 1) - left;
+            int nLeft = middle - left + 1;
             int nRight = right - middle;
 
-            int[] vetLeft = new int[nLeft + 1];
-            int[] vetRight = new int[nRight + 1];
+            int[] vetLeft = new int[nLeft];
+            int[] vetRight = new int[nRight];
 
-            vetLeft[nLeft] = vetRight[nRight] = 0x7FFFFFFF;
+            // copinado os dados para os arrays temporarios
+            for (int i = 0; i < nLeft; i++) { vetLeft[i] = vet[left + i]; assignments++; }
+            for (int j = 0; j < nRight; j++) { vetRight[j] = vet[middle + 1 + j]; assignments++; }
 
-            int iLeft, iRight, i;
+            int k = 0, l = 0, m = left;
 
-            for (iLeft = 0; iLeft < nLeft; iLeft++)
-            {
-                vetLeft[iLeft] = vet[left + iLeft];
-            }
-
-            for (iRight = 0; iRight < nRight; iRight++)
-            {
-                vetRight[iRight] = vet[(middle + 1) + iRight];
-            }
-
-            for (iLeft = iRight = 0, i = left; i <= right; i++)
+            // juntando os vetores ordenados de volta no array original
+            while (k < nLeft && l < nRight)
             {
                 comparisons++;
-                if (vetLeft[iLeft] <= vetRight[iRight])
-                {
-                    vet[i] = vetLeft[iLeft++];
-                }
-                else
-                {
-                    vet[i] = vetRight[iRight++];
-                    swaps++;
-                }
+                if (vetLeft[k] <= vetRight[l]) { vet[m++] = vetLeft[k++]; }
+                else { vet[m++] = vetRight[l++]; }
 
-            }
+                assignments++;            }
+
+            // copiando quaisquer elementos restantes da esquerda e dirieta
+            while (k < nLeft) { vet[m++] = vetLeft[k++]; assignments++; }
+            while (l < nRight) { vet[m++] = vetRight[l++]; assignments++; }
         }
     }
 }

@@ -3,9 +3,9 @@
     internal abstract class AbstractOrder
     {
         public long comparisons = 0;
-        public long swaps = 0;
         public long assignments = 0;
         public long time = 0;
+        public long swaps = 0;
 
         public void PrintNumbers()
         {

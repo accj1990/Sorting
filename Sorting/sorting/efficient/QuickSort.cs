@@ -20,6 +20,7 @@
 
             int i = left, j = right;
             int pivot = vet[(left + right) / 2];
+            assignments++;
 
             while (i <= j)
             {
@@ -43,6 +44,7 @@
             int temp = vet[left];
             vet[left] = vet[right];
             vet[right] = temp;
+            assignments += 3;
         }
     }
 }
