@@ -5,34 +5,33 @@ namespace Sorting.enums
     enum Sortings
     {
         [Description("BUBBLESORT")]
-        BUBBLESORT = 1,
+        BUBBLE_SORT = 1,
 
         [Description("SELECTION")]
-        SELECTIONSORT = 2,
+        SELECTION_SORT = 2,
 
         [Description("INSERTION")]
-        INSERTIONSORT = 3,
+        INSERTION_SORT = 3,
 
         [Description("BUCKETSORT")]
-        BUCKETSORT = 4,
+        BUCKET_SORT = 4,
 
         [Description("COUNTINGSORT")]
-        COUNTINGSORT = 5,
+        COUNTING_SORT = 5,
 
         [Description("RADIXSORT")]
-        RADIXSORT = 6,
+        RADIX_SORT = 6,
 
         [Description("SHELLSORT")]
-        SHELLSORT = 7,
+        SHELL_SORT = 7,
 
         [Description("QUICKSORT")]
-        QUICKSORT = 8,
+        QUICK_SORT = 8,
 
         [Description("MERGESORT")]
-        MERGESORT = 9,
+        MERGE_SORT = 9,
 
         [Description("HEAPSORT")]
-        HEAPSORT = 10,
-
+        HEAP_SORT = 10,
     }
 }

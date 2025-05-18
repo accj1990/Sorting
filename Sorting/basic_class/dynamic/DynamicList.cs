@@ -2,14 +2,13 @@
 
 namespace Sorting.basic_class.dynamic
 {
-    class DynamicList // or DoublyLinkedList
+    class DynamicList // ou DoublyLinkedList
     {
         public Cell? firstCell;
         public Cell? lastCell;
         public int cont;
 
         public DynamicList() { firstCell = lastCell = null; cont = 0; }
-
 
         public void Insert(int item, Position anchor, int position = 0)
         {
@@ -23,7 +22,7 @@ namespace Sorting.basic_class.dynamic
             if (b == true) { cont++; }
         }
 
-        public void Remove(Position anchor, int position)
+        public void Remove(Position anchor, int position = 0)
         {
             bool b = false;
             switch (anchor)
@@ -153,6 +152,5 @@ namespace Sorting.basic_class.dynamic
             }
             Console.WriteLine();
         }
-
     }
 }

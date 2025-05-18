@@ -4,6 +4,7 @@
     {
         public int[] pileArray;
         public int top; // guarda a posicao do elemento do topo
+        public int cont => top;
 
         public Pile(int n)
         {

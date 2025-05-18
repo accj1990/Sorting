@@ -23,7 +23,7 @@ namespace Sorting.basic_class.@static
             }
         }
 
-        public void Remove(Position anchor, int position)
+        public void Remove(Position anchor, int position = 0)
         {
             switch (anchor)
             {
@@ -78,7 +78,6 @@ namespace Sorting.basic_class.@static
         bool RemoveInStart()
         {
             if (cont == 0) { Console.WriteLine("\nNão é possível remover um elemento, já que, a lista está vazia."); return false; }
-
 
             for (int i = 0; i < cont - 1; i++)
             {

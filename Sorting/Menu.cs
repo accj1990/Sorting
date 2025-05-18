@@ -43,21 +43,21 @@ public static class Menu
         Console.WriteLine("I - Merge Sort");
         Console.WriteLine("J - Heap Sort");
         char op = char.ToUpper(char.Parse(Console.ReadLine()));
-        Sorting.enums.Sortings algorithm = global::Sorting.enums.Sortings.BUBBLESORT;
+        Sorting.enums.Sortings algorithm = global::Sorting.enums.Sortings.BUBBLE_SORT;
 
         Console.WriteLine(" ");
         switch (op)
         {
-            case 'A': Console.WriteLine("Opção A: Ordenação 'Bubble Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.BUBBLESORT; break;
-            case 'B': Console.WriteLine("Opção B: Ordenação 'Selection Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.SELECTIONSORT; break;
-            case 'C': Console.WriteLine("Opção C: Ordenação 'Insertion Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.INSERTIONSORT; break;
-            case 'D': Console.WriteLine("Opção D: Ordenação 'Bucket Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.BUCKETSORT; break;
-            case 'E': Console.WriteLine("Opção E: Ordenação 'Counting Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.COUNTINGSORT; break;
-            case 'F': Console.WriteLine("Opção F: Ordenação 'Radix Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.RADIXSORT; break;
-            case 'G': Console.WriteLine("Opção G: Ordenação 'Shell Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.SHELLSORT; break;
-            case 'H': Console.WriteLine("Opção H: Ordenação 'Quick Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.QUICKSORT; break;
-            case 'I': Console.WriteLine("Opção I: Ordenação 'Merge Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.MERGESORT; break;
-            case 'J': Console.WriteLine("Opção J: Ordenação 'Heap Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.HEAPSORT; break;
+            case 'A': Console.WriteLine("Opção A: Ordenação 'Bubble Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.BUBBLE_SORT; break;
+            case 'B': Console.WriteLine("Opção B: Ordenação 'Selection Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.SELECTION_SORT; break;
+            case 'C': Console.WriteLine("Opção C: Ordenação 'Insertion Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.INSERTION_SORT; break;
+            case 'D': Console.WriteLine("Opção D: Ordenação 'Bucket Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.BUCKET_SORT; break;
+            case 'E': Console.WriteLine("Opção E: Ordenação 'Counting Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.COUNTING_SORT; break;
+            case 'F': Console.WriteLine("Opção F: Ordenação 'Radix Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.RADIX_SORT; break;
+            case 'G': Console.WriteLine("Opção G: Ordenação 'Shell Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.SHELL_SORT; break;
+            case 'H': Console.WriteLine("Opção H: Ordenação 'Quick Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.QUICK_SORT; break;
+            case 'I': Console.WriteLine("Opção I: Ordenação 'Merge Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.MERGE_SORT; break;
+            case 'J': Console.WriteLine("Opção J: Ordenação 'Heap Sort' escolhida."); algorithm = global::Sorting.enums.Sortings.HEAP_SORT; break;
         }
         Console.WriteLine(" "); return algorithm;
     }

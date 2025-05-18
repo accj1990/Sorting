@@ -7,7 +7,7 @@ class ManagerDataStructure
     static Pile pile = null;
     static DynamicPile dynamicPile = null;
 
-    static Queue queue;
+    static Queue queue = null;
     static DynamicQueue dynamicQueue = null;
 
     static List list = null;
@@ -15,8 +15,8 @@ class ManagerDataStructure
 
     public static void Manipulate(DataStructure structure, int[] vet)
     {
-        int size, op = 1;
-        size = ChooseSize();
+        int size = 0, op = 1;
+        if (structure == DataStructure.PILE || structure == DataStructure.QUEUE || structure == DataStructure.LIST) { size = ChooseSize(); }
 
         switch (structure)
         {
@@ -110,6 +110,8 @@ class ManagerDataStructure
                 } while (op != 0);
                 break;
         }
+
+        ResetVariables();
     }
 
     private static int ChooseSize()
@@ -119,6 +121,18 @@ class ManagerDataStructure
 
         Console.WriteLine(" ");
         return size;
+    }
+
+    private static void ResetVariables()
+    {
+        pile = null;
+        dynamicPile = null;
+
+        queue = null;
+        dynamicQueue = null;
+
+        list = null;
+        dynamicList = null;
     }
 
     #region Static

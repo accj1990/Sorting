@@ -4,8 +4,9 @@
     {
         public Cell? firstCell;
         public Cell? lastCell;
+        public int cont;
 
-        public DynamicQueue() { firstCell = lastCell = null; }
+        public DynamicQueue() { firstCell = lastCell = null; cont = 0; }
 
         public void Insert(int item)
         {
@@ -17,6 +18,7 @@
                 lastCell.next = newCell;
                 lastCell = newCell;
             }
+            cont++;
         }
 
         public void Remove()
@@ -27,6 +29,7 @@
             // se o ultimo elemento for removido
             firstCell = firstCell.next;
             if (firstCell == null) { lastCell = null; }
+            cont--;
         }
 
         public void Print()
@@ -39,6 +42,5 @@
             }
             Console.WriteLine();
         }
-
     }
 }
