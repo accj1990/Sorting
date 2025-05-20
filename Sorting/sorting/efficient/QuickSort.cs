@@ -1,8 +1,10 @@
 ﻿namespace Sorting.sorting.efficient
 {
-     class QuickSort : AbstractOrder
+    class QuickSort : AbstractOrder
     {
-        public  int[] Sorting(int[] vet)
+        // int recursiveCalls = 0;
+
+        public int[] Sorting(int[] vet)
         {
             assignments = 0;
             comparisons = 0;
@@ -11,19 +13,23 @@
             Algorithm(vet, 0, vet.Length - 1);
 
             PrintNumbers();
+            // Console.WriteLine("recursive: " + recursiveCalls);
             return vet;
         }
 
-        private  void Algorithm(int[] vet, int left, int right)
+        private void Algorithm(int[] vet, int left, int right)
         {
+            // recursiveCalls++;
+            comparisons++;
             if (left >= right) return;
 
             int i = left, j = right;
             int pivot = vet[(left + right) / 2];
-            assignments++;
+            assignments += 3;
 
             while (i <= j)
             {
+                comparisons++;
                 while (vet[i] < pivot) { i++; comparisons++; }
                 while (vet[j] > pivot) { j--; comparisons++; }
                 if (i <= j)
@@ -32,14 +38,16 @@
                     swaps++;
                     i++;
                     j--;
+                    assignments += 2;
                 }
             }
 
-            if (left < j) Algorithm(vet, left, j);
-            if (i < right) Algorithm(vet, i, right);
+            comparisons += 2;
+            if (left < j) { Algorithm(vet, left, j); }
+            if (i < right) { Algorithm(vet, i, right); }
         }
 
-        private  void Swap(int[] vet, int left, int right)
+        private void Swap(int[] vet, int left, int right)
         {
             int temp = vet[left];
             vet[left] = vet[right];

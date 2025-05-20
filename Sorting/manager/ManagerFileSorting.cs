@@ -2,6 +2,7 @@
 using Sorting.sorting.efficient;
 using Sorting.sorting.simple;
 using Sorting.sorting.specials;
+using System.Diagnostics;
 
 namespace Sorting.manager
 {
@@ -10,6 +11,10 @@ namespace Sorting.manager
         public static void Order(Sortings algorithm, int[] vet)
         {
             int[] ordered;
+
+            // iniciando para medir o tempo de execucao
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             switch (algorithm)
             {
@@ -63,6 +68,10 @@ namespace Sorting.manager
                     ordered = h.Sorting(vet);
                     break;
             }
+
+            stopwatch.Stop();
+            double seconds = stopwatch.Elapsed.TotalSeconds;
+            Console.WriteLine($"Tempo de execução: {seconds:F6} segundos");
         }
     }
 }

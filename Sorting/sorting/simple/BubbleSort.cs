@@ -12,14 +12,15 @@
             {
                 for (int j = vet.Length - 1; j > i; j--)
                 {
-                    comparisons++;
+                    comparisons++; 
                     if (vet[j] < vet[j - 1])
                     {
                         int temp = vet[j];
                         vet[j] = vet[j - 1];
                         vet[j - 1] = temp;
-                        swaps++;
+
                         assignments += 3;
+                        swaps++; 
                     }
                 }
             }

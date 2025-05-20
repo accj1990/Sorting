@@ -5,7 +5,8 @@ namespace Sorting.print
 {
     static class PrintSolutionStatic
     {
-        public static void ArraySameLine(Sortings algorithm, int[] vet)
+        // public static void ArraySameLine(Sortings algorithm, int[] vet)
+        public static void ArraySameLine(int[] vet)
         {
             // Console.WriteLine("ALGORITMO - " + UtilEnum.GetDescription(algoritmo) + "\n");
             // Console.WriteLine("INICIO - Imprimindo estrutura em alocação estática sem pular linha.\n");

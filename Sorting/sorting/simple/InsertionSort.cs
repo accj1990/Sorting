@@ -20,6 +20,7 @@
                 {
                     vet[j + 1] = vet[j];
                     assignments++;
+                    swaps++;
                     j--;
                 }
 

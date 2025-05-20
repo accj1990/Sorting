@@ -1,6 +1,5 @@
-﻿using Sorting;
-using Sorting.basic_class.@static;
-using Sorting.manager;
+﻿using Sorting.sorting.adapted;
+using Sorting.sorting.efficient;
 
 public class Program
 {
@@ -8,6 +7,10 @@ public class Program
     {
         // https://github.com/accj1990/Sorting.git
         // https://pt.overleaf.com/read/kptbxrwtrzch#8b9776
+
+        // int[] vet = { 9, 7, 10, 8, 6, 2, 4, 3, 5, 1 };
+        // QuickSort quickSort = new QuickSort();
+        //int[] ordered = quickSort.Sorting(vet);
 
         int op = 0;
         do

@@ -1,5 +1,10 @@
-﻿using Sorting.basic_class.@static;
+﻿using Sorting.basic_class.dynamic;
+using Sorting.basic_class.@static;
+using Sorting.enums;
 using Sorting.manager;
+using Sorting.print;
+using Sorting.sorting.adapted;
+using Sorting.sorting.efficient;
 
 public static class Menu
 {
@@ -67,12 +72,12 @@ public static class Menu
         int[] vet = ChooseFile();
         Sorting.enums.Sortings algorithm = ChooseOrder(vet);
 
-        /* Console.WriteLine("Vetor antes da ordenação:");
-          PrintSolutionStatic.ArraySameLine(algorithm, vet); */
+        Console.WriteLine("Vetor antes da ordenação:");
+        PrintSolutionStatic.ArraySameLine(vet);
         ManagerFileSorting.Order(algorithm, vet);
 
-        /* Console.WriteLine("\nVetor depois da ordenação:");
-        PrintSolutionStatic.ArraySameLine(algorithm, vet); */
+        Console.WriteLine("\nVetor depois da ordenação:");
+        PrintSolutionStatic.ArraySameLine(vet);
         Console.WriteLine(" ");
     }
     #endregion
@@ -140,6 +145,8 @@ public static class Menu
         Console.WriteLine("Escolha o algoritmo que será executado");
         Console.WriteLine("A - Ordenação interna de dados");
         Console.WriteLine("B - Pilha, fila ou lista");
+        Console.WriteLine("C - Ordenação de lista estática com Quick Sort");
+        Console.WriteLine("D - Ordenação de lista dinâmica com Quick Sort");
         char op = char.ToUpper(char.Parse(Console.ReadLine()));
         Console.WriteLine(" ");
 
@@ -147,7 +154,47 @@ public static class Menu
         {
             case 'A': Console.WriteLine("Opção A: 'Ordenação interna de dados' escolhida.\n"); Sorting(); break;
             case 'B': Console.WriteLine("Opção B: 'Pilha, fila ou lista' escolhida.\n"); Manipulate(); break;
+            case 'C': Console.WriteLine("Opção C: 'Ordenação de lista estática com Quick Sort' escolhida.\n"); StaticListWithSorting(); break;
+            case 'D': Console.WriteLine("Opção D: 'Ordenação de lista dinâmica com Quick Sort' escolhida.\n"); DynamicListWithSorting(); break;
         }
         Console.WriteLine(" ");
+    }
+
+    private static void StaticListWithSorting()
+    {
+        // int[] vet = new int[10];
+        // vet = ManagerFileReader.File10();
+        int[] vet = new int[1000000];
+        vet = ManagerFileReader.File1000000();
+
+        List list = new List(vet.Length);
+
+        for (int i = 0; i < vet.Length; i++) { list.Insert(vet[i], Position.END); }
+        list.Print();
+        Console.WriteLine(" ");
+
+        QuickSortStatic quickSort = new QuickSortStatic();
+        quickSort.Sorting(list);
+
+        Console.WriteLine(" ");
+        list.Print();
+    }
+
+    private static void DynamicListWithSorting()
+    {
+        int[] vet = new int[1000000];
+        vet = ManagerFileReader.File1000000();
+
+        DynamicList list = new DynamicList();
+
+        for (int i = 0; i < vet.Length; i++) { list.Insert(vet[i], Position.END); }
+        list.Print();
+        Console.WriteLine(" ");
+
+        QuickSortDynamic quickSort = new QuickSortDynamic();
+        int[] ordered = quickSort.Sorting(list);
+
+        Console.WriteLine(" ");
+        list.Print();
     }
 }
