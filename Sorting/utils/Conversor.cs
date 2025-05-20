@@ -1,4 +1,5 @@
-﻿namespace Sorting.utils
+﻿using System.Linq;
+namespace Sorting.utils
 {
     class Conversor
     {

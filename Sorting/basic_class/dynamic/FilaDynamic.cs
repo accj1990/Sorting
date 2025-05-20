@@ -1,4 +1,6 @@
-﻿namespace Sorting.basic_class.dynamic
+﻿using System;
+
+namespace Sorting.basic_class.dynamic
 {
     class FilaDynamic
     {
