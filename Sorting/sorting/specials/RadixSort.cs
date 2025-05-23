@@ -95,17 +95,17 @@ namespace Sorting.sorting.specials
             Console.WriteLine("Time elapsed: " + stopwatch.Elapsed.TotalMilliseconds.ToString("F5") + " ms");
         }
         
-        public static void Main(string[] args)
-        {
-            string filePath = "C:\\Users\\Buza\\Desktop\\AedsIISorting\\MateusBarcelos\\Sorting\\inputs\\10-aleatorios.txt";
-            string content = File.ReadAllText(filePath);
-            int[] vector = content
-                .Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-        
-            RadixSortAlgorithm(vector);
-            PrintStats();
-        }
+        // public static void Main(string[] args)
+        // {
+        //     string filePath = "C:\\Users\\Buza\\Desktop\\AedsIISorting\\MateusBarcelos\\Sorting\\inputs\\10-aleatorios.txt";
+        //     string content = File.ReadAllText(filePath);
+        //     int[] vector = content
+        //         .Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+        //         .Select(int.Parse)
+        //         .ToArray();
+        //
+        //     RadixSortAlgorithm(vector);
+        //     PrintStats();
+        // }
     }
 }

@@ -4,17 +4,20 @@
     {
         public int valor;
         public Celula? prox;
+        public Celula? ant;
 
         public Celula()
         {
             this.valor = -1;
             this.prox = null;
+            this.ant = null;
         }
 
         public Celula(int valor)
         {
             this.valor = valor;
             this.prox = null;
+            this.ant = null;
         }
     }
 }
