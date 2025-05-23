@@ -1,4 +1,8 @@
-﻿namespace Sorting.basic_class.@static
+﻿using System;
+using System.IO;
+using System.Linq;
+
+namespace Sorting.basic_class.@static
 {
     class Fila
     {
@@ -50,5 +54,35 @@
             Console.WriteLine(" ");
 
         }
+        
+        // static void Main(string[] args)
+        // {
+        //     string filePath = "C:\\Users\\Buza\\Desktop\\AedsIISorting\\MateusBarcelos\\Sorting\\inputs\\100-aleatorios.txt";
+        //     
+        //     string content = File.ReadAllText(filePath);
+        //     
+        //     int[] vector = content
+        //         .Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+        //         .Select(int.Parse)
+        //         .ToArray();
+        //     
+        //     Fila fila = new Fila(vector.Length);
+        //     
+        //     foreach (int item in vector)
+        //     {
+        //         fila.Inserir(item);
+        //     }
+        //     
+        //     fila.Mostrar();//vetor antes
+        //
+        //     fila.Remover();
+        //     fila.Remover();
+        //     fila.Remover();
+        //     fila.Inserir(2);
+        //     fila.Inserir(3);
+        //     fila.Inserir(45);
+        //     
+        //     fila.Mostrar();// vetor depois das inserções e remoções
+        // }
     }
 }

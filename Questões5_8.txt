@@ -1,0 +1,23 @@
+Questão 5 (A)
+
+Vetor original: {9, 7, 10, 8, 6, 2, 4, 3, 5, 1}
+
+Pivô: 9 (primeiro da lista)
+
+Resultado do primeiro particionamento: {7, 8, 6, 2, 4, 3, 5, 1, 9, 10}
+
+(B)
+
+Se o pivô for sempre o primeiro número, ele só separa 1 número por vez, isso significa que o Quick Sort vai repetir n vezes onde n é o tamanho do vetor. Nesse caso 10.
+
+(C)
+
+O pior caso é O(n²). Uma vez que o pivô é mal escolhido, o algoritmo vai fazer muitas comparações e chamadas desnecessárias.
+
+Questão 8
+
+As desvantagens da alocação estática são:
+- Desperdício de memória quando o espaço reservado não é utilizado totalmente.
+- Falta de flexibilidade, pois o tamanho da estrutura é fixo.
+- Dificuldade de lidar com quantidades variáveis de dados em tempo de execução.
+- Possibilidade de estouro de memória se os dados ultrapassarem o espaço reservado.

@@ -1,4 +1,7 @@
-﻿namespace Sorting.reader
+﻿using System.IO;
+using System.Linq;
+
+namespace Sorting.reader
 {
     class ReaderFile
     {
