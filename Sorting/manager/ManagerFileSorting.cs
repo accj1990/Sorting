@@ -1,49 +1,59 @@
 ﻿using Sorting.enums;
 using Sorting.sorting.simple;
+using Sorting.sorting.specials;
+using Sorting.sorting.efficient;
 
 namespace Sorting.manager
 {
     class ManagerFileSorting
     {
-        public static void Ordenar(Sortings algoritmo, int[] vet)
+        public static int[] Ordenar(Sortings algoritmo, int[] vet)
         {
-            int[] ordenado;
+            int[] ordenado = [0];
 
             switch (algoritmo)
             {
                 case Sortings.BUBBLESORT:
                     ordenado = BubbleSort.Sorting(vet);
-                    break;
+                    return ordenado;
 
                 case Sortings.SELECTIONSORT:
                     ordenado = SelectionSort.Sorting(vet);
-                    break;
+                    return ordenado;
 
                 case Sortings.INSERTIONSORT:
                     ordenado = InsertionSort.Sorting(vet);
-                    break;
+                    return ordenado;
 
                 case Sortings.BUCKETSORT:
-                    break;
+                    ordenado = BucketSort.Sorting(vet);
+                    return ordenado;
 
                 case Sortings.COUNTINGSORT:
-                    break;
+                    ordenado = CountingSort.Sorting(vet);
+                    return ordenado;
 
                 case Sortings.RADIXSORT:
-                    break;
+                    ordenado = RadixSort.Sorting(vet);
+                    return ordenado;
 
                 case Sortings.SHELLSORT:
-                    break;
+                    ordenado = ShellSort.Sorting(vet);
+                    return ordenado;
 
                 case Sortings.QUICKSORT:
-                    break;
+                    ordenado = QuickSort.Sorting(vet, 0, vet.Length - 1);
+                    return ordenado;
 
                 case Sortings.MERGESORT:
-                    break;
+                    ordenado = MergeSort.Sorting(vet, 0, vet.Length - 1);
+                    return ordenado;
 
                 case Sortings.HEAPSORT:
-                    break;
+                    ordenado = HeapSort.Sorting(vet);
+                    return ordenado;
             }
+            return ordenado;
         }
     }
 }

@@ -53,5 +53,19 @@ namespace Sorting.manager
             return Conversor.ConvertArrayStringsToInts(reader.LerLinhaALinha());
 
         }
+
+        public static int[] ReadArchive(string archiveName)
+        {
+            if (File.Exists($"./inputs/{archiveName}.txt") == true)
+            {
+                ReaderFile reader = new ReaderFile($"./inputs/{archiveName}.txt");
+
+                return Conversor.ConvertArrayStringsToInts(reader.LerLinhaALinha());
+            }
+            else
+            {
+                return [0];
+            }
+        }
     }
 }
